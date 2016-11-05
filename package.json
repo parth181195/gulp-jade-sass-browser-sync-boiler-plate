@@ -1,0 +1,18 @@
+{
+  "name": "gulpy_jade_sass",
+  "version": "1.0.0",
+  "description": "simple work-flow automation for gulp.js",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Parth Jansari",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-sass": "^2.3.2"
+  }
+}
