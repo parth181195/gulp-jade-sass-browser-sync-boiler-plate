@@ -5,12 +5,14 @@ var browserSync = require('browser-sync');
 var prefix = require('gulp-autoprefixer');
 gulp.task("jade", function() {
     // input files for jade
-    browserSync.reload()
     return gulp.src('_assets/_jadefiles/*.jade')
         // Run JADE on those Files
         .pipe(jade())
         // Write the resulting html in the output folder
-        .pipe(gulp.dest('_site'));
+        .pipe(gulp.dest('_site'))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
 })
 gulp.task('sass', function() {
     return gulp
@@ -33,19 +35,23 @@ gulp.task('sass', function() {
 });
 //for copying js to _site/js folder
 gulp.task('js', function() {
-    browserSync.reload()
-        // input files for js
+    // input files for js
     return gulp.src('_assets/_javascripts/*.js')
         // Write the resulting js in the output folder
-        .pipe(gulp.dest('_site/assets/js'));
+        .pipe(gulp.dest('_site/assets/js'))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
 });
 //for copying images to _site/img folder
 gulp.task('img', function() {
-    browserSync.reload()
-        // input files for img
+    // input files for img
     return gulp.src('_assets/_image/**')
         // Write the resulting img in the output folder
-        .pipe(gulp.dest('_site/assets/img'));
+        .pipe(gulp.dest('_site/assets/img'))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
 });
 //start server with browser sync in _site directory
 gulp.task('browser-sync', ['jade', 'sass', 'js', 'img'], function(done) {
